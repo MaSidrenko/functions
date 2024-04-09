@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 
 using std::cout;
 using std::cin;
@@ -17,15 +17,17 @@ void main()
 	cout << "Hello Functions" << endl;
 	int a, b;
 	int f = 1;
-	//int n,m;
-	//cin >> n;
-	//cin >> m;
-	cout << "Ââåäèòå äâà ÷èñëà: "; cin >> a >> b;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð²Ð° Ñ‡Ð¸ÑÐ»Ð°: "; cin >> a >> b;
 	cout << a << " + " << b << " = " << Sum(a, b) << endl;
 	cout << a << " - " << b << " = " << Diff(a, b) << endl;
 	cout << a << " * " << b << " = " << Prod(a, b) << endl;
 	cout << a << " / " << b << " = " << Quot(a, b) << endl;
-	cout << -a << "! = " << Factorial(a) << endl;
+	if (a < 0) {
+		cout << -a << "! = " << Factorial(a) << endl;
+	}
+	else {
+		cout << a << "! = " << Factorial(a) << endl;
+	}
 	cout << a << "^" << b << " = " << Power(a, b);
 }
 int Sum(int a, int b)
