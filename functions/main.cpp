@@ -8,7 +8,7 @@ int Sum(int a, int b);
 int Diff(int a, int b);
 int Prod(int a, int b);
 double Quot(int a, int b);
-int Factorial(int a);
+long long Factorial(int a);
 double Power(double a, int b);
 
 void main() 
@@ -16,7 +16,6 @@ void main()
 	setlocale(LC_ALL, "");
 	cout << "Hello Functions" << endl;
 	int a, b;
-	int f = 1;
 	cout << "Введите два числа: "; cin >> a >> b;
 	cout << a << " + " << b << " = " << Sum(a, b) << endl;
 	cout << a << " - " << b << " = " << Diff(a, b) << endl;
@@ -29,6 +28,7 @@ void main()
 		cout << a << "! = " << Factorial(a) << endl;
 	}
 	cout << a << "^" << b << " = " << Power(a, b);
+	main();
 }
 int Sum(int a, int b)
 {
@@ -46,9 +46,9 @@ double Quot(int a, int b)
 {
 	return (double)a / b;
 }
-int Factorial(int a)
+long long Factorial(int a)
 {
-	int f = 1;
+	long long f = 1;
 	if (a < 0) 
 	{
 		a = -a;
