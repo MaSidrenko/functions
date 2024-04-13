@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 
 using std::cout;
 using std::cin;
@@ -26,8 +26,8 @@ void main()
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(arr, n) << endl;
-	cout << "Ñðåäíåå àðèôìèòè÷åñêîå ýëåìåíòîâ ìàññèâà " << Avg(arr, n) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr, n) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼Ð¸Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° " << Avg(arr, n) << endl;
 	minValueIn(arr, n);
 	maxValueIn(arr, n);
 	ShiftLeft(arr, n);
@@ -87,7 +87,7 @@ int minValueIn(const int arr[], const int n)
 	{
 		if (minValue > arr[i])minValue = arr[i];
 	}
-	cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà: " << minValue << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << minValue << endl;
 	return minValue;
 }
 int maxValueIn(const int arr[], const int n)
@@ -97,13 +97,13 @@ int maxValueIn(const int arr[], const int n)
 	{
 		if (maxValue < arr[i])maxValue = arr[i];
 	}
-	cout << "Ìàêñèìàëüíî çíà÷åíèå ìàññèâà: " << maxValue << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << maxValue << endl;
 	return maxValue;
 }
 void ShiftLeft(int arr[], const int n) 
 {
 	int num_of_shifts;
-	cout << "Ââåäèòå êîëè÷åñòâî ñäâèãîâ âëåâî: "; cin >> num_of_shifts;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð² Ð²Ð»ÐµÐ²Ð¾: "; cin >> num_of_shifts;
 	for (int i = 0; i < num_of_shifts; i++)
 	{
 	int buffer = arr[0];
@@ -118,7 +118,7 @@ void ShiftLeft(int arr[], const int n)
 void ShiftRight(int arr[], const int n) 
 {
 	int num_of_shifts;
-	cout << "Ââåäèòå êîëè÷åñòâî ñäâèãîâ âïðàâî: "; cin >> num_of_shifts;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð² Ð²Ð¿Ñ€Ð°Ð²Ð¾: "; cin >> num_of_shifts;
 	for (int i = 0; i<num_of_shifts; i++) 
 	{
 		int buffer = arr[n - 1];
