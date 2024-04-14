@@ -12,8 +12,8 @@ void Print(const int arr[], const int n);
 void Sort(int arr[], const int n);
 int Sum(const int arr[], const int n);
 double Avg(const int arr[], const int n);
-int minValueIn(const int arr[], const int n);
-int maxValueIn(const int arr[], const int n);
+void minValueIn(const int arr[], const int n);
+void maxValueIn(const int arr[], const int n);
 void ShiftLeft(int arr[], const int n);
 void ShiftRight(int arr[], const int n);
 
@@ -80,7 +80,7 @@ double Avg(const int arr[], const int n)
 	Avg = (double)Sum(arr, n) / n;
 	return Avg;
 }
-int minValueIn(const int arr[], const int n)
+void minValueIn(const int arr[], const int n)
 {
 		int minValue = arr[0];
 	for (int i = 0; i < n; i++)
@@ -88,9 +88,8 @@ int minValueIn(const int arr[], const int n)
 		if (minValue > arr[i])minValue = arr[i];
 	}
 	cout << "Минимальное значение массива: " << minValue << endl;
-	return minValue;
 }
-int maxValueIn(const int arr[], const int n)
+void maxValueIn(const int arr[], const int n)
 {
 	int maxValue = arr[0];
 	for (int i = 0; i < n; i++) 
@@ -98,7 +97,6 @@ int maxValueIn(const int arr[], const int n)
 		if (maxValue < arr[i])maxValue = arr[i];
 	}
 	cout << "Максимально значение массива: " << maxValue << endl;
-	return maxValue;
 }
 void ShiftLeft(int arr[], const int n) 
 {
