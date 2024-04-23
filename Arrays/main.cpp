@@ -14,6 +14,7 @@ const int COLS = 4;
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
 void FillRand(char arr[], const int n);
+
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -21,6 +22,7 @@ void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(char arr[], const int n);
+
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(double arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -29,6 +31,7 @@ void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
 void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
 void Sort(char arr[], const int n);
+
 void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS);
 void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -37,6 +40,7 @@ void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
 int Sum(char arr[], const int n);
+
 int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS);
 int Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -44,6 +48,7 @@ int Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 double Avg(char arr[], const int n);
+
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -52,6 +57,7 @@ double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS);
 int minValueIn(int arr[], const int n);
 double minValueIn(double arr[], const int n);
 char minValueIn(char arr[], const int n);
+
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
 char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -60,6 +66,7 @@ char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 int maxValueIn(int arr[], const int n);
 double maxValueIn(double arr[], const int n);
 char maxValueIn(char arr[], const int n);
+
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
 char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -68,6 +75,7 @@ char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 void ShiftLeft(int arr[], const int n, int num_of_shifts);
 void ShiftLeft(double arr[], const int n, int num_of_shifts);
 void ShiftLeft(char arr[], const int n, int num_of_shifts);
+
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS, int num_of_shifts);
 
 
@@ -331,11 +339,14 @@ void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for(int i = 0; i <ROWS; i++) 
 	{
-		for (int j = 0; j < COLS; j++) {
-			for (int k = 0; k < ROWS; k++)
+		for (int j = 0; j < COLS; j++) 
+		{
+			for (int k = i; k < ROWS; k++)
 			{
-				for(int l = 0; l < COLS; l++) {
-					if (arr[k][l] > arr[i][j]) {
+				for(int l = k == i ? j + 1 : 0; l < COLS; l++)
+				{
+					if (arr[k][l] < arr[i][j]) 
+					{
 						int buffer = arr[i][j];
 						arr[i][j] = arr[k][l];
 						arr[k][l] = buffer;
@@ -350,9 +361,9 @@ void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
 	for(int i = 0; i <ROWS; i++) 
 	{
 		for (int j = 0; j < COLS; j++) {
-			for (int k = 0; k < ROWS; k++)
+			for (int k = i; k < ROWS; k++)
 			{
-				for(int l = 0; l < COLS; l++) {
+				for(int l = k == i ? j + 1 : 0; l < COLS; l++) {
 					if (arr[k][l] > arr[i][j]) {
 						double buffer = arr[i][j];
 						arr[i][j] = arr[k][l];
@@ -368,9 +379,9 @@ void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS)
 	for(int i = 0; i <ROWS; i++) 
 	{
 		for (int j = 0; j < COLS; j++) {
-			for (int k = 0; k < ROWS; k++)
+			for (int k = i; k < ROWS; k++)
 			{
-				for(int l = 0; l < COLS; l++) {
+				for(int l = k == i ? j + 1 : 0; l < COLS; l++) {
 					if (arr[k][l] > arr[i][j]) {
 						char buffer = arr[i][j];
 						arr[i][j] = arr[k][l];
