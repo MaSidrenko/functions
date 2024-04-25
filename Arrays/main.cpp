@@ -6,16 +6,26 @@ using std::endl;
 using std::cerr;
 
 #define tab "\t"
+#define delimeter "\n|-----------------------------------------------------------------------------------|\n\n"
 
 void FillRand(int arr[], const int n);
-void Print(const int arr[], const int n);
-void Sort(int arr[], const int n);
-int Sum(const int arr[], const int n);
-double Avg(const int arr[], const int n);
-int minValueIn(const int arr[], const int n);
-int maxValueIn(const int arr[], const int n);
-void ShiftLeft(int arr[], const int n, int num_of_shifts);
-void ShiftRight(int arr[], const int n, int num_of_shifts);
+void FillRand(double arr[], const int n);
+
+template<typename T>void Print(T arr[], const int n);
+
+template<typename T>void Sort(T arr[], const int n);
+
+template<typename T>T Sum(T arr[], const int n);
+
+template<typename T>double Avg(T arr[], const int n);
+
+template<typename T>T minValueIn(T arr[], const int n);
+
+template<typename T>T maxValueIn(T arr[], const int n);
+
+template<typename T>void ShiftLeft(T arr[], const int n, int num_of_shifts);
+
+template<typename T>void ShiftRight(T arr[], const int n, int num_of_shifts);
 
 void main()
 {
@@ -37,6 +47,24 @@ void main()
 	cout << "Введите количество сдвигов вправо: "; cin >> num_of_shifts;
 	ShiftRight(arr, n, num_of_shifts);
 	Print(arr, n);
+	cout << delimeter;
+
+	const int D_SIZE = 8;
+	double d_arr[D_SIZE];
+	FillRand(d_arr, D_SIZE);
+	Print(d_arr, D_SIZE);
+	Sort(d_arr, D_SIZE);
+	Print(d_arr, D_SIZE);
+	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE) << endl;
+	cout << "Среднее-арифмитическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(d_arr, D_SIZE) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(d_arr, D_SIZE) << endl;
+	cout << "Введите количество сдвигов влево: "; cin >> num_of_shifts;
+	ShiftLeft(d_arr, D_SIZE, num_of_shifts);
+	Print(d_arr, D_SIZE);
+	cout << "Введите количество сдвигов вправо: "; cin >> num_of_shifts;
+	ShiftRight(d_arr, D_SIZE, num_of_shifts);
+	Print(d_arr, D_SIZE);
 }
 
 void FillRand(int arr[], const int n)
@@ -46,7 +74,15 @@ void FillRand(int arr[], const int n)
 		arr[i] = rand() % 100;
 	}
 }
-void Print(const int arr[], const int n) 
+void FillRand(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 10000;
+		arr[i] /= 100;
+	}
+}
+template<typename T>void Print(T arr[], const int n) 
 {
 	for (int i = 0; i < n; i++) 
 	{
@@ -54,56 +90,56 @@ void Print(const int arr[], const int n)
 	}
 	cout << endl;
 }
-void Sort(int arr[], const int n) 
+template<typename T>void Sort(T arr[], const int n) 
 {
 	for (int i = 0; i < n; i++) 
 	{
 		for (int j = i + 1; j < n; j++) 
 		{
 			if (arr[j] < arr[i]) {
-				int buffer = arr[i];
+				T buffer = arr[i];
 				arr[i] = arr[j];
 				arr[j] = buffer;
 			}
 		}
 	}
 }
-int Sum(const int arr[], const int n)
+template<typename T>T Sum(T arr[], const int n)
 {
-	int sum = 0;
+	T sum = 0;
 	for (int i = 0; i < n; i++) 
 	{
 		sum += arr[i];
 	}
 	return sum;
 }
-double Avg(const int arr[], const int n)
+template<typename T>double Avg(T arr[], const int n)
 {
-	return (double)Sum(arr, n) / n;
+	return Sum(arr, n) / n;
 }
-int minValueIn(const int arr[], const int n)
+template<typename T>T minValueIn(T arr[], const int n)
 {
-		int minValue = arr[0];
+	T minValue = arr[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (minValue > arr[i])minValue = arr[i];
 	}
 	return minValue;
 }
-int maxValueIn(const int arr[], const int n)
+template<typename T>T maxValueIn(T arr[], const int n)
 {
-	int maxValue = arr[0];
+	T maxValue = arr[0];
 	for (int i = 0; i < n; i++) 
 	{
 		if (maxValue < arr[i])maxValue = arr[i];
 	}
 	return maxValue;
 }
-void ShiftLeft(int arr[], const int n,int num_of_shifts)
+template<typename T>void ShiftLeft(T arr[], const int n,int num_of_shifts)
 {
 	for (int i = 0; i < num_of_shifts; i++)
 	{
-	int buffer = arr[0];
+	T buffer = arr[0];
 		for (int i = 1; i < n; i++) 
 		{
 			arr[i - 1] = arr[i];
@@ -112,7 +148,7 @@ void ShiftLeft(int arr[], const int n,int num_of_shifts)
 
 	}
 }
-void ShiftRight(int arr[], const int n,int num_of_shifts) 
+template<typename T>void ShiftRight(T arr[], const int n,int num_of_shifts) 
 {
 	ShiftLeft(arr, n, n - num_of_shifts);
 }
